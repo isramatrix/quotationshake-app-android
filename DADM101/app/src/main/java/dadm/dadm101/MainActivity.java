@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TextView tvWelcome = findViewById(R.id.tvWelcome);
-        tvWelcome.setText("IT'S A ME MAAARIOOO!!");
+        tvWelcome.setText(R.string.changed_mario);
+
     }
 }
