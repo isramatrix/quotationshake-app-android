@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuotationShake</string>
+    <string name="about">Sobre</string>
+    <string name="about_info">Quotation Shake por\\n\\nZakaria Boujyagdad Israel Sanjurjo\\n\\n zakbou@inf.upv.es issancue@inf.upv.es\\n\\n2020</string>
+    <string name="author_info">Sobre el autor</string>
+    <string name="favourite_quotations">Citas favoritas</string>
+    <string name="get_quotations">Obtener citas</string>
+    <string name="insert_your_name">Introduce tu nombre</string>
+    <string name="name_that_identifies_user">El nombre que identifica al usuario</string>
+    <string name="quotations_will_be">Las citas se recibirán en el idioma seleccionado</string>
+    <string name="refresh_to_quotation">¡Hola %1s!\\n Pulsa actualizar para obtener una nueva cita</string>
+    <string name="settings">Opciones</string>
+    <string name="web_request_type">Las peticiones HTTP se ejecutarán utilizando el método HTTP seleccionado</string>
+</resources>

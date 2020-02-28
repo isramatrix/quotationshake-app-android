@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">QuotationShake</string>
+    <string name="get_quotations">Get quotations</string>
+    <string name="favourite_quotations">Favourite quotations</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="about_info">Quotation Shake by\\n\\nZakaria Boujyagdad Israel Sanjurjo\\n\\n zakbou@inf.upv.es issancue@inf.upv.es\\n\\n2020</string>
+    <string name="name_that_identifies_user">Name that identifies the user</string>
+    <string name="insert_your_name">Insert your name</string>
+    <string name="quotations_will_be">Quotations will be received in the selected language</string>
+    <string name="web_request_type">Web requests will be performed using the selected HTTP method</string>
+    <string name="get" translatable="false">GET</string>
+    <string name="post" translatable="false">POST</string>
+    <string name="author_info">Author info</string>
+    <string name="refresh_to_quotation">Hello  %1s!\\nPress Refresh to get a new quotation</string>
+</resources>
