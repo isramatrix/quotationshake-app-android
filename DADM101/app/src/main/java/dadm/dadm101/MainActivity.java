@@ -13,7 +13,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private final static String LIFECYCLE = "LifeCycle";
-    private final static int SECOND_ACTIVITY = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent intent = new Intent(
                 MainActivity.this,
                 SecondaryActivity.class);
-        intent.putExtra("message", "Este es el mensaje");
-        startActivityForResult(intent, SECOND_ACTIVITY);
+        startActivity(intent);
     }
 
     @Override
