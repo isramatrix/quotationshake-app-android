@@ -32,12 +32,12 @@
         android:title="@string/storage_settings">
 
         <ListPreference
-            android:defaultValue="false"
+            android:key="@string/database_preference"
+            android:title="@string/database_preference"
+            android:summary="@string/database_summary"
             android:entries="@array/database_types"
             android:entryValues="@array/database_types"
-            android:key="@string/database_preference"
-            android:summary="@string/database_summary"
-            android:title="@string/database_preference" />
+            android:defaultValue="@string/sqlite_open_helper" />
 
     </PreferenceCategory>
 

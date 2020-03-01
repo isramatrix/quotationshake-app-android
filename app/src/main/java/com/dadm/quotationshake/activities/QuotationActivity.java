@@ -80,7 +80,11 @@ public class QuotationActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.quotation_activity_menu,menu);
+        getMenuInflater().inflate(R.menu.quotation_activity_menu, menu);
+
+        addFavouritesItem = menu.getItem(0);
+        refreshItem = menu.getItem(1);
+
         return true;
     }
 
@@ -118,7 +122,7 @@ public class QuotationActivity extends AppCompatActivity {
     @Override
     protected void onStop()
     {
-        if (callQuotationTask.getStatus() == AsyncTask.Status.RUNNING)
+        if (callQuotationTask != null && callQuotationTask.getStatus() == AsyncTask.Status.RUNNING)
             callQuotationTask.cancel(true);
         super.onStop();
     }
@@ -134,8 +138,8 @@ public class QuotationActivity extends AppCompatActivity {
 
         // Obtiene el nombre de las preferencias del usuario. Si no existe se
         // añade un nombre por defecto
-        String userName = preferences.getString(
-                getString(R.string.username), DEFAULT_USERNAME);
+        String userName = preferences.getString(getString(R.string.username), DEFAULT_USERNAME);
+        if (userName.isEmpty()) userName = DEFAULT_USERNAME;
 
         // Incluye el nombre del usuario en el texto de la vista de citas.
         String quoteText = String.format(
@@ -174,7 +178,8 @@ public class QuotationActivity extends AppCompatActivity {
     {
         quoteView.setVisibility(loading ? View.GONE : View.VISIBLE);
         authorView.setVisibility(loading ? View.GONE : View.VISIBLE);
-        refreshButton.setVisibility(loading ? View.GONE : View.VISIBLE);
+        refreshItem.setVisible(!loading);
+        addFavouritesItem.setVisible(!loading);
         quotationLoading.setVisibility(loading ? View.VISIBLE : View.GONE);
     }
 
@@ -234,14 +239,27 @@ public class QuotationActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 switch (preferredDatabase)
                 {
                     case SQLite:
-                        addFavouritesItem.setVisible(!QuotationSQLiteOpenHelper.getInstance(QuotationActivity.this).existsQuotation(quotation));
-                        break;
+                        final boolean existsSql = QuotationSQLiteOpenHelper.getInstance(QuotationActivity.this).existsQuotation(quotation);
+                        QuotationActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                addFavouritesItem.setVisible(!existsSql);
+                            }
+                        });
+                    break;
 
                     case ROOM:
-                        addFavouritesItem.setVisible(QuotationRoom.getInstance(QuotationActivity.this).quotationDao().get(quotation.getQuote()) != null);
+                        final boolean existsRoom = QuotationRoom.getInstance(QuotationActivity.this).quotationDao().get(quotation.getQuote()) != null;
+                        QuotationActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                addFavouritesItem.setVisible(!existsRoom);
+                            }
+                        });
                         break;
 
                     default: addFavouritesItem.setVisible(true);

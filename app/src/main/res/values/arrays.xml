@@ -6,8 +6,8 @@
     </string-array>
 
     <string-array name="request_methods">
-        <item>GET</item>
-        <item>POST</item>
+        <item>@string/get</item>
+        <item>@string/post</item>
     </string-array>
 
     <string-array name="database_types">

@@ -54,14 +54,13 @@ public class CallQuotationTask extends AsyncTask<String, Void, Quotation>
     protected Quotation doInBackground(String... params)
     {
         try {
-
             // Obtiene los parámetros de la tarea asíncrona.
             Language language = getLanguage(params[0]);
             Method requestMethod = getMethod(params[1]);
 
             // Abre y configura una nueva conexión a la API de citas.
             HttpsURLConnection connection = openQuotationConnection(requestMethod, language);
-            configureConnection(requestMethod, connection);
+            configureConnection(connection, requestMethod);
 
             // Si el método elegido por el usuario es POST, añade el cuerpo de la petición.
             if (requestMethod == Method.POST)
@@ -71,19 +70,26 @@ public class CallQuotationTask extends AsyncTask<String, Void, Quotation>
             if (isConnectionAvailable(connection))
                 return readConnectionResponse(connection);
 
+            // De vez en cuando, obtenemos un código de error 302 con una solicitud POST.
+            else if (requestMethod == Method.POST) return doInBackground(params[0], Method.GET.name());
+
             // En caso contrario, devuelve una cita nula.
             else return null;
 
-        } catch (MalformedURLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
         }
 
         // Si ha habido algún error en la petición, devuelve un valor nulo.
         return null;
+    }
+
+    private void configureConnection(HttpURLConnection connection, Method requestMethod) throws ProtocolException
+    {
+        connection.setRequestMethod(requestMethod.name());
+
+        connection.setDoInput(true);
+        if (requestMethod == Method.POST) connection.setDoOutput(true);
     }
 
     private HttpsURLConnection openQuotationConnection(Method requestMethod, Language language) throws MalformedURLException, IOException
@@ -103,11 +109,6 @@ public class CallQuotationTask extends AsyncTask<String, Void, Quotation>
 
         // Devuelve una conexión abierta a la URL de obtención de citas.
         return (HttpsURLConnection) new URL(uri.build().toString()).openConnection();
-    }
-
-    private void configureConnection(Method requestMethod, HttpURLConnection connection) throws ProtocolException
-    {
-        connection.setRequestMethod(requestMethod.name());
     }
 
     private void setRequestBody(Language language, HttpURLConnection connection) throws IOException
@@ -132,9 +133,13 @@ public class CallQuotationTask extends AsyncTask<String, Void, Quotation>
 
     private Method getMethod(String requestMethod)
     {
-        if (requestMethod.equals(Resources.getSystem().getString(R.string.get)))
+        // Obtiene una referencia al contexto de ejecución del hilo
+        QuotationActivity context = this.activity.get();
+        if (context == null) return null;
+
+        if (requestMethod.equals(context.getString(R.string.get)))
             return Method.GET;
-        else if (requestMethod.equals(Resources.getSystem().getString(R.string.post)))
+        else if (requestMethod.equals(context.getString(R.string.post)))
             return Method.POST;
 
         else return Method.ANY;
@@ -142,9 +147,13 @@ public class CallQuotationTask extends AsyncTask<String, Void, Quotation>
 
     private Language getLanguage(String language)
     {
-        if (language.equals(Resources.getSystem().getString(R.string.get)))
+        // Obtiene una referencia al contexto de ejecución del hilo
+        QuotationActivity context = this.activity.get();
+        if (context == null) return null;
+
+        if (language.equals(context.getString(R.string.english)))
             return Language.EN;
-        else if (language.equals(Resources.getSystem().getString(R.string.post)))
+        else if (language.equals(context.getString(R.string.russian)))
             return Language.RU;
 
         else return Language.ANY;
@@ -163,6 +172,6 @@ public class CallQuotationTask extends AsyncTask<String, Void, Quotation>
         context.showQuotation(quotation);
 
         // Notifica a la interfaz que se ha terminado de cargar la nueva cita.
-        context.setLoadingQuotation(true);
+        context.setLoadingQuotation(false);
     }
 }

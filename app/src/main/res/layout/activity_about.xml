@@ -11,7 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="150dp"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/zakaria" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/israel" />
+
         <TextView
+            android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/about_info"
@@ -20,25 +41,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="180dp"
-            android:layout_height="230dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/zakaria" />
-
-        <ImageView
-            android:layout_width="180dp"
-            android:layout_height="230dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/israel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

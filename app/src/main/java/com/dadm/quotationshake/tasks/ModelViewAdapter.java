@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.model;
+package com.dadm.quotationshake.tasks;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dadm.quotationshake.R;
+import com.dadm.quotationshake.activities.FavouriteActivity;
+import com.dadm.quotationshake.database.Quotation;
 
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class ModelViewAdapter extends RecyclerView.Adapter<ModelViewAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.quote.setText(quotes.get(position).getQuote());
-        holder.authorName.setText(quotes.get(position).getAuthorName());
+        holder.authorName.setText(quotes.get(position).getAuthor());
     }
 
     @Override

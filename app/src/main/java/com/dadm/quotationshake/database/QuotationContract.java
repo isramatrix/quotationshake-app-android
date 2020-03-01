@@ -16,7 +16,9 @@ public class QuotationContract
     {
         // Obtiene la base de datos de la preferencias del usuario.
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String selectedDatabase = preferences.getString(context.getString(R.string.database_preference), "");
+        String selectedDatabase = preferences.getString(
+                context.getString(R.string.database_preference),
+                context.getString(R.string.sqlite_open_helper));
 
         if (selectedDatabase.equals(context.getString(R.string.room)))
             return Database.ROOM;

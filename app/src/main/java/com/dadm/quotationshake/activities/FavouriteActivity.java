@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.dadm.quotationshake.R;
-import com.dadm.quotationshake.model.ModelViewAdapter;
+import com.dadm.quotationshake.tasks.ModelViewAdapter;
 import com.dadm.quotationshake.tasks.FetchQuotationTask;
 import com.dadm.quotationshake.database.QuotationContract;
 import com.dadm.quotationshake.database.QuotationRoom;
@@ -42,28 +42,18 @@ public class FavouriteActivity extends AppCompatActivity implements ModelViewAda
         setContentView(R.layout.activity_favourite);
 
         preferedDatabase = QuotationContract.getPreferredDatabase(this);
-        new FetchQuotationTask(this).execute(preferedDatabase);
-
-        ArrayList<com.dadm.quotationshake.model.Quotation> j = new ArrayList();
-        j.add(new com.dadm.quotationshake.model.Quotation("Calderón de la barca", "erre que erre"));
-
-        adapter = new ModelViewAdapter( j, this, this);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        RecyclerView recyclerView = this.findViewById(R.id.quotesRecyclerView);
-        RecyclerView.ItemDecoration separator = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(separator);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.favourite_activity_menu, menu);
+
         clearFavouritesItem = menu.findItem(R.id.clearAllFavsMenuItem);
-        if (adapter.getItemCount() == 0){
-            clearFavouritesItem.setVisible(false);
-        }
-        getMenuInflater().inflate(R.menu.favourite_activity_menu,menu);
+        clearFavouritesItem.setVisible(false);
+
+        new FetchQuotationTask(this).execute(preferedDatabase);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -93,7 +83,7 @@ public class FavouriteActivity extends AppCompatActivity implements ModelViewAda
 
     @Override
     public void onItemClickListener(int position) {
-        String authorName = adapter.getQuotation(position).getAuthorName();
+        String authorName = adapter.getQuotation(position).getAuthor();
 
         if (authorName == null || authorName.isEmpty()){
             Toast toast = Toast.makeText(getApplicationContext(), R.string.errorNoAuthor, Toast.LENGTH_SHORT);
@@ -105,7 +95,8 @@ public class FavouriteActivity extends AppCompatActivity implements ModelViewAda
     }
 
     @Override
-    public void onItemLongClickListener(final int position) {
+    public void onItemLongClickListener(final int position)
+    {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setIcon(android.R.drawable.stat_sys_warning);
         builder.setMessage(R.string.removeQuoteDialogMessage);
@@ -113,6 +104,7 @@ public class FavouriteActivity extends AppCompatActivity implements ModelViewAda
         builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                deleteQuotation(adapter.getQuotation(position));
                 adapter.removeQuotation(position);
             }
         });
@@ -121,8 +113,17 @@ public class FavouriteActivity extends AppCompatActivity implements ModelViewAda
 
     public void onQuotationsLoaded(List<Quotation> quotations)
     {
-        // Si no se ha recibido ninguna cita, oculta la opción de borrar las citas favoritas.
-        if (quotations == null || quotations.size() == 0) clearFavouritesItem.setVisible(false);
+        // Si se ha recibido alguna cita, muestra la opción de borrar las citas favoritas.
+        clearFavouritesItem.setVisible(quotations != null && quotations.size() > 0);
+
+        adapter = new ModelViewAdapter(quotations, this, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        RecyclerView recyclerView = this.findViewById(R.id.quotesRecyclerView);
+        RecyclerView.ItemDecoration separator = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(separator);
+        recyclerView.setAdapter(adapter);
     }
 
     private void searchForAuthor(String authorName)
