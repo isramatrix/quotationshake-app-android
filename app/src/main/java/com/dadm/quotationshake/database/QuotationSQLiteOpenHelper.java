@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.model.database;
+package com.dadm.quotationshake.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,15 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import com.dadm.quotationshake.model.entity.Quotation;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.dadm.quotationshake.model.database.QuotationContract.Columns.*;
-import static com.dadm.quotationshake.model.database.QuotationContract.DATABASE_NAME;
+import static com.dadm.quotationshake.database.QuotationContract.Columns.*;
+import static com.dadm.quotationshake.database.QuotationContract.DATABASE_NAME;
 
 public class QuotationSQLiteOpenHelper extends SQLiteOpenHelper
 {

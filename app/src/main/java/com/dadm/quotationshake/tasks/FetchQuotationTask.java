@@ -1,14 +1,14 @@
-package com.dadm.quotationshake.logic.tasks;
+package com.dadm.quotationshake.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
-import static com.dadm.quotationshake.model.database.QuotationContract.Database;
+import static com.dadm.quotationshake.database.QuotationContract.Database;
 
-import com.dadm.quotationshake.model.database.QuotationRoom;
-import com.dadm.quotationshake.model.database.QuotationSQLiteOpenHelper;
-import com.dadm.quotationshake.model.entity.Quotation;
-import com.dadm.quotationshake.view.activities.FavouriteActivity;
+import com.dadm.quotationshake.database.QuotationRoom;
+import com.dadm.quotationshake.database.QuotationSQLiteOpenHelper;
+import com.dadm.quotationshake.database.Quotation;
+import com.dadm.quotationshake.activities.FavouriteActivity;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

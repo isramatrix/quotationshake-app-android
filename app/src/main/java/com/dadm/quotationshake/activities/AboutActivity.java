@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.view.activities;
+package com.dadm.quotationshake.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

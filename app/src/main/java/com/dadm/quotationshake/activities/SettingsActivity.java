@@ -1,16 +1,10 @@
-package com.dadm.quotationshake.view.activities;
+package com.dadm.quotationshake.activities;
 
 import androidx.annotation.IdRes;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.dadm.quotationshake.R;
 

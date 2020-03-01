@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.view.activities;
+package com.dadm.quotationshake.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,11 +17,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.dadm.quotationshake.R;
-import com.dadm.quotationshake.logic.tasks.CallQuotationTask;
-import com.dadm.quotationshake.model.database.QuotationContract;
-import com.dadm.quotationshake.model.database.QuotationRoom;
-import com.dadm.quotationshake.model.database.QuotationSQLiteOpenHelper;
-import com.dadm.quotationshake.model.entity.Quotation;
+import com.dadm.quotationshake.tasks.CallQuotationTask;
+import com.dadm.quotationshake.database.QuotationContract;
+import com.dadm.quotationshake.database.QuotationRoom;
+import com.dadm.quotationshake.database.QuotationSQLiteOpenHelper;
+import com.dadm.quotationshake.database.Quotation;
 
 public class QuotationActivity extends AppCompatActivity {
 

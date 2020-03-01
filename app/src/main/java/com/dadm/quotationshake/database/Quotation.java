@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.model.entity;
+package com.dadm.quotationshake.database;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -6,10 +6,9 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.dadm.quotationshake.model.database.QuotationContract;
 import com.google.gson.annotations.SerializedName;
 
-import static com.dadm.quotationshake.model.database.QuotationContract.Columns.*;
+import static com.dadm.quotationshake.database.QuotationContract.Columns.*;
 
 @Entity(tableName = QUOTATION_TABLE)
 public class Quotation

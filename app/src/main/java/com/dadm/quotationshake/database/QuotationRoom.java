@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.model.database;
+package com.dadm.quotationshake.database;
 
 import android.content.Context;
 
@@ -6,9 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.dadm.quotationshake.model.entity.Quotation;
-
-import static com.dadm.quotationshake.model.database.QuotationContract.DATABASE_NAME;
+import static com.dadm.quotationshake.database.QuotationContract.DATABASE_NAME;
 
 @Database(
         entities = { Quotation.class },

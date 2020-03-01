@@ -13,19 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activities.QuotationActivity"
+            android:name=".activities.QuotationActivity"
             android:label="@string/get_quotations" />
         <activity
-            android:name=".view.activities.FavouriteActivity"
+            android:name=".activities.FavouriteActivity"
             android:label="@string/favourite_quotations " />
         <activity
-            android:name=".view.activities.SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/settings"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.activities.AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/about" />
-        <activity android:name=".view.activities.DashboardActivity">
+        <activity android:name=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

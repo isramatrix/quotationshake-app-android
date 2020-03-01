@@ -1,4 +1,4 @@
-package com.dadm.quotationshake.model.database;
+package com.dadm.quotationshake.database;
 
 import android.content.Context;
 import android.provider.BaseColumns;

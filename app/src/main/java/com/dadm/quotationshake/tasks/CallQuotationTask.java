@@ -1,17 +1,16 @@
-package com.dadm.quotationshake.logic.tasks;
+package com.dadm.quotationshake.tasks;
 
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.AsyncTask;
 
 import com.dadm.quotationshake.R;
-import com.dadm.quotationshake.model.entity.Quotation;
-import com.dadm.quotationshake.view.activities.QuotationActivity;
+import com.dadm.quotationshake.database.Quotation;
+import com.dadm.quotationshake.activities.QuotationActivity;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;

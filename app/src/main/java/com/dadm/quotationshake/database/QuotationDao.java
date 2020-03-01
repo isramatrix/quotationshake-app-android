@@ -1,11 +1,9 @@
-package com.dadm.quotationshake.model.database;
+package com.dadm.quotationshake.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-
-import com.dadm.quotationshake.model.entity.Quotation;
 
 import java.util.List;
 

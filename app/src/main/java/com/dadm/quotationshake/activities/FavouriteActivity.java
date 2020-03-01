@@ -1,7 +1,6 @@
-package com.dadm.quotationshake.view.activities;
+package com.dadm.quotationshake.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,11 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.dadm.quotationshake.R;
-import com.dadm.quotationshake.logic.tasks.FetchQuotationTask;
-import com.dadm.quotationshake.model.database.QuotationContract;
-import com.dadm.quotationshake.model.database.QuotationRoom;
-import com.dadm.quotationshake.model.database.QuotationSQLiteOpenHelper;
-import com.dadm.quotationshake.model.entity.Quotation;
+import com.dadm.quotationshake.tasks.FetchQuotationTask;
+import com.dadm.quotationshake.database.QuotationContract;
+import com.dadm.quotationshake.database.QuotationRoom;
+import com.dadm.quotationshake.database.QuotationSQLiteOpenHelper;
+import com.dadm.quotationshake.database.Quotation;
 
 import java.util.List;
 
