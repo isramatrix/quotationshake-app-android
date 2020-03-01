@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="languages">
         <item>@string/english</item>
         <item>@string/russian</item>
@@ -15,3 +14,4 @@
         <item>@string/sqlite_open_helper</item>
         <item>@string/room</item>
     </string-array>
+</resources>

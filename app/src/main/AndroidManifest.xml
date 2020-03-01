@@ -13,39 +13,39 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activities.QuotationActivity"
+            android:name=".activities.QuotationActivity"
             android:label="@string/get_quotations"
-            android:parentActivityName=".view.activities.DashboardActivity" >
+            android:parentActivityName=".activities.DashboardActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.activities.DashboardActivity"/>
+                android:value=".activities.DashboardActivity"/>
         </activity>
         <activity
-            android:name=".view.activities.FavouriteActivity"
+            android:name=".activities.FavouriteActivity"
             android:label="@string/favourite_quotations"
-            android:parentActivityName=".view.activities.DashboardActivity" >
+            android:parentActivityName=".activities.DashboardActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.activities.DashboardActivity"/>
+                android:value=".activities.DashboardActivity"/>
         </activity>
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
             android:windowSoftInputMode="stateAlwaysHidden"
-            android:parentActivityName=".view.activities.DashboardActivity" >
+            android:parentActivityName=".activities.DashboardActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.activities.DashboardActivity"/>
+                android:value=".activities.DashboardActivity"/>
         </activity>
         <activity
-            android:name=".view.activities.AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="@string/about"
-            android:parentActivityName=".view.activities.DashboardActivity" >
+            android:parentActivityName=".activities.DashboardActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.activities.DashboardActivity"/>
+                android:value=".activities.DashboardActivity"/>
         </activity>
-        <activity android:name=".view.activities.DashboardActivity">
+        <activity android:name=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

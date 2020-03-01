@@ -58,7 +58,7 @@ public class QuotationActivity extends AppCompatActivity {
         preferredDatabase = QuotationContract.getPreferredDatabase(this);
 
         // Inicializa la referencia al botón que actualiza las citas.
-        refreshButton = findViewById(R.id.refresh_button);
+        refreshButton = findViewById(R.id.refreshMenuItem);
 
         // Inicializa la referencia a la animación de cargarndo una cita.
         quotationLoading = findViewById(R.id.quotation_loading);
@@ -80,27 +80,19 @@ public class QuotationActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        // Guarda una referencia de los items del menú
-        refreshItem = menu.getItem(0);
-        addFavouritesItem = menu.getItem(1);
-
-        // Inicia la invisibilidad del botón de añadir favoritos
-        addFavouritesItem.setVisible(false);
-
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.quotation_activity_menu,menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
-        // Si la opción es para obtener una nueva cita.
-        if (item.equals(refreshItem)) {
-            if (isInternetAvailable()) callQuotationTask = createQuotationTask();
-
-        // Si la opción es para añadir la cita a favoritos.
-        } else if (item.equals(addFavouritesItem)) addQuoteToFavourites(actualQuotation);
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.favoriteMenuItem: addQuoteToFavourites(actualQuotation); break;
+            case R.id.refreshMenuItem: if (isInternetAvailable()) callQuotationTask = createQuotationTask(); break;
+            default: return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
     private AsyncTask createQuotationTask()

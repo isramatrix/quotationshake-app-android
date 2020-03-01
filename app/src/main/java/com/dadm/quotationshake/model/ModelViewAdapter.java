@@ -3,14 +3,11 @@ package com.dadm.quotationshake.model;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dadm.quotationshake.R;
-import com.dadm.quotationshake.view.activities.FavouriteActivity;
 
 import java.util.List;
 
