@@ -23,13 +23,13 @@ public class FetchQuotationTask extends AsyncTask<Database, Void, List<Quotation
     }
 
     @Override
-    protected List<Quotation> doInBackground(Database... preferedDatabase)
+    protected List<Quotation> doInBackground(Database... preferredDatabase)
     {
         // Obtiene una referencia al contexto de ejecución del hilo
         Context context = this.activity.get();
         if (context == null) return null;
 
-        switch (preferedDatabase[0])
+        switch (preferredDatabase[0])
         {
             case SQLite:
                 return QuotationSQLiteOpenHelper.getInstance(context).getQuotations();

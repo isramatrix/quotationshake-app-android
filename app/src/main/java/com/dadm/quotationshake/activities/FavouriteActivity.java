@@ -43,6 +43,7 @@ public class FavouriteActivity extends AppCompatActivity implements ModelViewAda
 
         preferedDatabase = QuotationContract.getPreferredDatabase(this);
         new FetchQuotationTask(this).execute(preferedDatabase);
+
         ArrayList<com.dadm.quotationshake.model.Quotation> j = new ArrayList();
         j.add(new com.dadm.quotationshake.model.Quotation("Calderón de la barca", "erre que erre"));
 

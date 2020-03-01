@@ -15,14 +15,16 @@
             android:title="@string/quotations_title"
             android:summary="@string/quotations_summary"
             android:entries="@array/languages"
-            android:entryValues="@array/languages" />
+            android:entryValues="@array/languages"
+            android:defaultValue="@string/english"/>
 
         <ListPreference
             android:key="@string/request_title"
             android:title="@string/request_title"
             android:summary="@string/request_summary"
             android:entries="@array/request_methods"
-            android:entryValues="@array/request_methods" />
+            android:entryValues="@array/request_methods"
+            android:defaultValue="@string/get"/>
 
     </PreferenceCategory>
 
@@ -30,11 +32,12 @@
         android:title="@string/storage_settings">
 
         <ListPreference
-            android:key="@string/database_preference"
-            android:title="@string/database_preference"
-            android:summary="@string/database_summary"
+            android:defaultValue="false"
             android:entries="@array/database_types"
-            android:entryValues="@array/database_types" />
+            android:entryValues="@array/database_types"
+            android:key="@string/database_preference"
+            android:summary="@string/database_summary"
+            android:title="@string/database_preference" />
 
     </PreferenceCategory>
 
