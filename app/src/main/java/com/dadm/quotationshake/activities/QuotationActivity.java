@@ -95,12 +95,23 @@ public class QuotationActivity extends AppCompatActivity {
     {
         // Si la opción es para obtener una nueva cita.
         if (item.equals(refreshItem)) {
-            if (isInternetAvailable()) callQuotationTask = new CallQuotationTask(this).execute();
+            if (isInternetAvailable()) callQuotationTask = createQuotationTask();
 
         // Si la opción es para añadir la cita a favoritos.
         } else if (item.equals(addFavouritesItem)) addQuoteToFavourites(actualQuotation);
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private AsyncTask createQuotationTask()
+    {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Obtiene los parámetros de la petición de las preferencias del usuario.
+        String language = preferences.getString(getString(R.string.quotations_title), "");
+        String requestMethod = preferences.getString(getString(R.string.request_title), "");
+
+        return new CallQuotationTask(this).execute(language, requestMethod);
     }
 
     @Override

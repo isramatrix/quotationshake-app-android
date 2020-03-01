@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="languages">
+        <item>English</item>
+        <item>Russian</item>
+    </string-array>
+
+    <string-array name="request_methods">
+        <item>GET</item>
+        <item>POST</item>
+    </string-array>
+
+    <string-array name="database_types">
+        <item>@string/sqlite_open_helper</item>
+        <item>@string/room</item>
+    </string-array>
 
 </resources>

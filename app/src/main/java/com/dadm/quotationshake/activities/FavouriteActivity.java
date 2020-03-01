@@ -25,7 +25,6 @@ public class FavouriteActivity extends AppCompatActivity {
 
     private static QuotationContract.Database preferedDatabase;
 
-
     private MenuItem clearFavouritesItem;
 
     @Override

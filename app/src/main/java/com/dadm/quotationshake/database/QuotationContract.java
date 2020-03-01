@@ -1,7 +1,12 @@
 package com.dadm.quotationshake.database;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.provider.BaseColumns;
+
+import androidx.preference.PreferenceManager;
+
+import com.dadm.quotationshake.R;
 
 public class QuotationContract
 {
@@ -9,7 +14,16 @@ public class QuotationContract
 
     public static Database getPreferredDatabase(Context context)
     {
-        return Database.SQLite;
+        // Obtiene la base de datos de la preferencias del usuario.
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String selectedDatabase = preferences.getString(context.getString(R.string.database_preference), "");
+
+        if (selectedDatabase.equals(context.getString(R.string.room)))
+            return Database.ROOM;
+        else if (selectedDatabase.equals(context.getString(R.string.sqlite_open_helper)))
+            return Database.SQLite;
+        else
+            return null;
     }
 
     public static final String DATABASE_NAME = "quotation_database";
