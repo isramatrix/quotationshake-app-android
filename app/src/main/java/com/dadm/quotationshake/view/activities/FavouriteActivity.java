@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.dadm.quotationshake.R;
+import com.dadm.quotationshake.logic.tasks.FetchQuotationTask;
 import com.dadm.quotationshake.model.database.QuotationContract;
 import com.dadm.quotationshake.model.database.QuotationRoom;
 import com.dadm.quotationshake.model.database.QuotationSQLiteOpenHelper;
@@ -35,6 +36,7 @@ public class FavouriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favourite);
 
         preferedDatabase = QuotationContract.getPreferredDatabase(this);
+        new FetchQuotationTask(this).execute(preferedDatabase);
     }
 
     @Override
@@ -58,6 +60,12 @@ public class FavouriteActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onQuotationsLoaded(List<Quotation> quotations)
+    {
+        // Si no se ha recibido ninguna cita, oculta la opción de borrar las citas favoritas.
+        if (quotations == null || quotations.size() == 0) clearFavouritesItem.setVisible(false);
+    }
+
     public void onClick(View view)
     {
         searchForAuthor("Albert Einstein");
@@ -70,46 +78,43 @@ public class FavouriteActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private List<Quotation> getQuotations()
+    private void deleteQuotation(final Quotation quotation)
     {
-        switch (preferedDatabase)
-        {
-            case SQLite:
-                return QuotationSQLiteOpenHelper.getInstance(this).getQuotations();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                switch (preferedDatabase)
+                {
+                    case SQLite:
+                        QuotationSQLiteOpenHelper.getInstance(FavouriteActivity.this).deleteQuotation(quotation);
+                        break;
 
-            case ROOM:
-                return QuotationRoom.getInstance(this).quotationDao().getAll();
-
-            default: return null;
-        }
-    }
-
-    private void deleteQuotation(Quotation quotation)
-    {
-        switch (preferedDatabase)
-        {
-            case SQLite:
-                QuotationSQLiteOpenHelper.getInstance(this).deleteQuotation(quotation);
-                break;
-
-            case ROOM:
-                QuotationRoom.getInstance(this).quotationDao().delete(quotation);
-                break;
-        }
+                    case ROOM:
+                        QuotationRoom.getInstance(FavouriteActivity.this).quotationDao().delete(quotation);
+                        break;
+                }
+            }
+        }).start();
     }
 
     private void deleteQuotations()
     {
-        switch (preferedDatabase)
-        {
-            case SQLite:
-                QuotationSQLiteOpenHelper.getInstance(this).deleteAllQuotations();
-                break;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                switch (preferedDatabase)
+                {
+                    case SQLite:
+                        QuotationSQLiteOpenHelper.getInstance(FavouriteActivity.this).deleteAllQuotations();
+                        break;
 
-            case ROOM:
-                QuotationRoom.getInstance(this).quotationDao().deleteAll();
-                break;
-        }
+                    case ROOM:
+                        QuotationRoom.getInstance(FavouriteActivity.this).quotationDao().deleteAll();
+                        break;
+                }
+            }
+        }).start();
+
     }
 
     private String getSearchUrl(String authorName)

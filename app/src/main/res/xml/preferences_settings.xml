@@ -5,17 +5,19 @@
         android:key="@string/username"
         android:title="@string/username_title"
         android:summary="@string/username_summary"
-        android:hint="@string/username_hint"
-        android:defaultValue="a" />
+        android:hint="@string/username_hint" />
 
-    <PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/get_quotations">
         <ListPreference
-            android:title="@string/quotations_will_be">
+            android:title="@string/quotations_title"
+            android:summary="@string/quotations_summary">
 
         </ListPreference>
 
         <ListPreference
-            android:title="@string/web_request_type">
+            android:title="@string/request_title"
+            android:summary="@string/request_summary">
 
         </ListPreference>
     </PreferenceCategory>

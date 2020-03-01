@@ -3,9 +3,11 @@ package com.dadm.quotationshake.model.entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.dadm.quotationshake.model.database.QuotationContract;
+import com.google.gson.annotations.SerializedName;
 
 import static com.dadm.quotationshake.model.database.QuotationContract.Columns.*;
 
@@ -17,15 +19,18 @@ public class Quotation
     private int id;
 
     @NonNull
+    @SerializedName("quoteText")
     @ColumnInfo(name = QUOTATION_QUOTE)
     private String quote;
 
     @NonNull
+    @SerializedName("quoteAuthor")
     @ColumnInfo(name = QUOTATION_AUTHOR)
     private String author;
 
     public Quotation() { }
 
+    @Ignore
     public Quotation(@NonNull String quote, @NonNull String author)
     {
         this.quote = quote;

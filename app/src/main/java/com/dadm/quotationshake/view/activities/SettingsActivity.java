@@ -33,7 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
                 .commit();
     }
 
-    static class SettingsFragment extends PreferenceFragmentCompat
+    public static class SettingsFragment extends PreferenceFragmentCompat
     {
         /**
          * Called during {@link #onCreate(Bundle)} to supply the preferences for this fragment.

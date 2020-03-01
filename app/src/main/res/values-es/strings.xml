@@ -2,14 +2,24 @@
 <resources>
     <string name="app_name">QuotationShake</string>
     <string name="about">Sobre</string>
-    <string name="about_info">Quotation Shake por\\n\\nZakaria Boujyagdad Israel Sanjurjo\\n\\n zakbou@inf.upv.es issancue@inf.upv.es\\n\\n2020</string>
+    <string name="about_info">Quotation Shake por\n\nZakaria Bouyajdad Israel Sanjurjo\n\nzakbou@inf.upv.es issancue@inf.upv.es\n\n2020</string>
     <string name="author_info">Sobre el autor</string>
     <string name="favourite_quotations">Citas favoritas</string>
     <string name="get_quotations">Obtener citas</string>
+    <string name="username_title">El nombre que identifica el usuario</string>
     <string name="username_hint">Introduce tu nombre</string>
     <string name="username_summary">El nombre que identifica al usuario</string>
-    <string name="quotations_will_be">Las citas se recibirán en el idioma seleccionado</string>
-    <string name="refresh_to_quotation">¡Hola %1s!\\n Pulsa actualizar para obtener una nueva cita</string>
+    <string name="quotations_title">Idioma de las citas</string>
+    <string name="quotations_summary">Las citas se recibirán en el idioma seleccionado</string>
+    <string name="refresh_to_quotation">¡Hola %1s!\n Pulsa actualizar para obtener una nueva cita</string>
     <string name="settings">Opciones</string>
-    <string name="web_request_type">Las peticiones HTTP se ejecutarán utilizando el método HTTP seleccionado</string>
+    <string name="request_title">Método de obtención</string>
+    <string name="request_summary">Las peticiones HTTP se ejecutarán utilizando el método HTTP seleccionado</string>
+
+    <string name="storage_settings">Preferencias de almacenamiento</string>
+    <string name="database_preference">Base de datos utilizada</string>
+    <string name="database_summary">La base de datos en la que se guardarán las citas favoritas</string>
+
+
+
 </resources>

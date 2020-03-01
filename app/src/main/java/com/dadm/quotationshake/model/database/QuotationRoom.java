@@ -12,7 +12,8 @@ import static com.dadm.quotationshake.model.database.QuotationContract.DATABASE_
 
 @Database(
         entities = { Quotation.class },
-        version = 1
+        version = 1,
+        exportSchema = false
 )
 public abstract class QuotationRoom extends RoomDatabase
 {
@@ -26,11 +27,10 @@ public abstract class QuotationRoom extends RoomDatabase
     private static QuotationRoom createDatabase(Context context)
     {
         return Room.databaseBuilder(context, QuotationRoom.class, DATABASE_NAME)
-                .allowMainThreadQueries()
                 .build();
     }
 
-    private QuotationRoom() { }
+    public QuotationRoom() { }
 
     public abstract QuotationDao quotationDao();
 }

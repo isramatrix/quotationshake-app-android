@@ -32,6 +32,9 @@ dependencies {
     annotationProcessor 'androidx.room:room-compiler:2.2.4'
     testImplementation 'androidx.room:room-testing:2.2.4'
 
+    // Para el tratamiento de respuesta REST en formato JSON
+    implementation 'com.google.code.gson:gson:2.8.5'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'

@@ -90,7 +90,7 @@ public class QuotationSQLiteOpenHelper extends SQLiteOpenHelper
         // Ejecuta una SELECT sobre la base de datos y obtiene el resultado
         Cursor query = database.query(
                 QUOTATION_TABLE,
-                new String[]{ QUOTATION_QUOTE, QUOTATION_TABLE },
+                new String[]{ QUOTATION_QUOTE, QUOTATION_AUTHOR },
                 null, null, null, null, null
         );
 
@@ -98,7 +98,7 @@ public class QuotationSQLiteOpenHelper extends SQLiteOpenHelper
         while (query.moveToNext())
             result.add( new Quotation(
                     query.getString(query.getColumnIndex(QUOTATION_QUOTE)),
-                    query.getString(query.getColumnIndex(QUOTATION_TABLE))
+                    query.getString(query.getColumnIndex(QUOTATION_AUTHOR))
             ));
         query.close();
 
