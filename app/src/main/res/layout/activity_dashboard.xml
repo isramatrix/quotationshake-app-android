@@ -13,8 +13,10 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_weight="1"
+        android:background="@drawable/button_style"
         android:onClick="onClick"
-        android:text="@string/get_quotations" />
+        android:text="@string/get_quotations"
+        android:textColor="@color/dashboard_button_style" />
 
     <Button
         android:id="@+id/favourite_quotations"
@@ -22,8 +24,10 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_weight="1"
+        android:background="@drawable/button_style"
         android:onClick="onClick"
-        android:text="@string/favourite_quotations" />
+        android:text="@string/favourite_quotations"
+        android:textColor="@color/dashboard_button_style" />
 
     <Button
         android:id="@+id/settings"
@@ -31,8 +35,10 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_weight="1"
+        android:background="@drawable/button_style"
         android:onClick="onClick"
-        android:text="@string/settings" />
+        android:text="@string/settings"
+        android:textColor="@color/dashboard_button_style" />
 
     <Button
         android:id="@+id/about"
@@ -40,6 +46,8 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_weight="1"
+        android:background="@drawable/button_style"
         android:onClick="onClick"
-        android:text="@string/about" />
+        android:text="@string/about"
+        android:textColor="@color/dashboard_button_style" />
 </LinearLayout>

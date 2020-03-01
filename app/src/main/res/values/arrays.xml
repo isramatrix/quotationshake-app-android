@@ -2,8 +2,8 @@
 <resources>
 
     <string-array name="languages">
-        <item>English</item>
-        <item>Russian</item>
+        <item>@string/english</item>
+        <item>@string/russian</item>
     </string-array>
 
     <string-array name="request_methods">
@@ -15,5 +15,3 @@
         <item>@string/sqlite_open_helper</item>
         <item>@string/room</item>
     </string-array>
-
-</resources>
