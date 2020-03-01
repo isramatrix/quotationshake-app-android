@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:key="@string/username"
+        android:title="@string/username_title"
+        android:summary="@string/username_summary"
+        android:hint="@string/username_hint" />
+
+    <PreferenceCategory
+        android:title="@string/get_quotations">
+
+        <ListPreference
+            android:key="@string/quotations_title"
+            android:title="@string/quotations_title"
+            android:summary="@string/quotations_summary"
+            android:entries="@array/languages"
+            android:entryValues="@array/languages"
+            android:defaultValue="@string/english"/>
+
+        <ListPreference
+            android:key="@string/request_title"
+            android:title="@string/request_title"
+            android:summary="@string/request_summary"
+            android:entries="@array/request_methods"
+            android:entryValues="@array/request_methods"
+            android:defaultValue="@string/get"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/storage_settings">
+
+        <ListPreference
+            android:key="@string/database_preference"
+            android:title="@string/database_preference"
+            android:summary="@string/database_summary"
+            android:entries="@array/database_types"
+            android:entryValues="@array/database_types"
+            android:defaultValue="@string/sqlite_open_helper" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

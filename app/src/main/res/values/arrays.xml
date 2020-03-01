@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>@string/english</item>
+        <item>@string/russian</item>
+    </string-array>
+
+    <string-array name="request_methods">
+        <item>@string/get</item>
+        <item>@string/post</item>
+    </string-array>
+
+    <string-array name="database_types">
+        <item>@string/sqlite_open_helper</item>
+        <item>@string/room</item>
+    </string-array>
+</resources>
