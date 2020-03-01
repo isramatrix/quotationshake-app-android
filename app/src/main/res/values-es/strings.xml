@@ -9,7 +9,15 @@
     <string name="insert_your_name">Introduce tu nombre</string>
     <string name="name_that_identifies_user">El nombre que identifica al usuario</string>
     <string name="quotations_will_be">Las citas se recibirán en el idioma seleccionado</string>
-    <string name="refresh_to_quotation">¡Hola %1s!\\n Pulsa actualizar para obtener una nueva cita</string>
+    <string name="refresh_to_quotation">¡Hola, Pulsa actualizar para obtener una nueva cita</string>
     <string name="settings">Opciones</string>
     <string name="web_request_type">Las peticiones HTTP se ejecutarán utilizando el método HTTP seleccionado</string>
+    <string name="english">Inglés</string>
+    <string name="russian">Ruso</string>
+    <string name="errorNoAuthor">"Error: no se ha encontrado el autor"</string>
+    <string name="removeQuoteDialogMessage">¿Estás seguro de eliminar la cita?</string>
+    <string name="clearQuotesDialogMessage">¿Estás seguro de querer eliminar TODAS tus citas favoritas?</string>
+    <string name="favMenuItemTitle">Añadir</string>
+    <string name="refreshMenuItemTitle">Recargar</string>
+    <string name="clearAllMenuItemTitle">Eliminar todo</string>
 </resources>
