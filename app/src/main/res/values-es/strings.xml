@@ -6,8 +6,8 @@
     <string name="author_info">Sobre el autor</string>
     <string name="favourite_quotations">Citas favoritas</string>
     <string name="get_quotations">Obtener citas</string>
-    <string name="insert_your_name">Introduce tu nombre</string>
-    <string name="name_that_identifies_user">El nombre que identifica al usuario</string>
+    <string name="username_hint">Introduce tu nombre</string>
+    <string name="username_summary">El nombre que identifica al usuario</string>
     <string name="quotations_will_be">Las citas se recibirán en el idioma seleccionado</string>
     <string name="refresh_to_quotation">¡Hola %1s!\\n Pulsa actualizar para obtener una nueva cita</string>
     <string name="settings">Opciones</string>
